@@ -1,2 +1,2 @@
-# mergesort
-Java Basic MergeSort Hometask
+# Mergesort
+MergeSort Hometask (Java Basic)
