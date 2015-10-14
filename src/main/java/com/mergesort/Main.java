@@ -7,7 +7,11 @@ public class Main {
         inputData.chooseData();
 
         MergeSort mergeSort = new MergeSort();
-        int[] arr = {5, 7, 8, 10};
+        int[] arr = {5, 17, 12, 7};
         mergeSort.sortArray(arr);
+
+        for (int i : mergeSort.getResult()) {
+            System.out.print(i + " ");
+        }
     }
 }

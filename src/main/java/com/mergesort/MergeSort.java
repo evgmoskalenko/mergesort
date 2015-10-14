@@ -1,30 +1,35 @@
 package com.mergesort;
 
 public class MergeSort {
+    private int[] result;
 
-    public void sortArray(int[] array) {
-        if (array.length > 1) {
-            int middleIndex = array.length / 2;
-            mergeSort(copyArray(array, 0, middleIndex),
-                    copyArray(array, middleIndex + 1, array.length - 1));
-        }
+    public int[] getResult() {
+        return result;
     }
 
-    public int[] copyArray(int[] array, int low, int high) {
-        int[] newArray = null;
-        for (int i = low; i < high; i++) {
-            newArray[i] = array[i];
+    public int[] sortArray(int[] array) {
+        if (array.length < 2) return array;
+        int middleIndex = array.length / 2;
+        return mergeSort(sortArray(copyArray(array, 0, middleIndex - 1)),
+                    sortArray(copyArray(array, middleIndex, array.length - 1)));
+    }
+
+    private int[] copyArray(int[] array, int low, int high) {
+        int[] newArray = new int[high - low + 1];
+        for (int i = low, j = 0; i <= high && j < newArray.length; i++, j++) {
+            newArray[j] = array[i];
         }
         return newArray;
     }
 
-    public int[] mergeSort(int[] a, int[] b) {
-        int[] result = null;
+    private int[] mergeSort(int[] a, int[] b) {
         int resultLength = a.length + b.length;
-        int k = 0,m = 0; //счетчики индексов входящих массивов
+        result = new int[resultLength];
+        int k = 0;
+        int m = 0; //counters of indexes of input arrays
 
         for (int i = 0; i < resultLength; i++) {
-            if (k <= a.length && m <= b.length) {
+            if (k < a.length && m < b.length) {
                 if (a[k] < b[m]) {
                     result[i] = a[k];
                     k++;
@@ -32,7 +37,7 @@ public class MergeSort {
                     result[i] = b[m];
                     m++;
                 }
-            } else if (k <= a.length) {
+            } else if (k < a.length) {
                 result[i] = a[k];
                 k++;
             } else {
