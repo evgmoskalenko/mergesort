@@ -2,27 +2,19 @@ package com.mergesort;
 
 public class Sort {
 
-    public int[] sortArray(int[] array) {
-
-        int[] x = null;
-        int[] y = null;
-
+    public void sortArray(int[] array) {
         if (array.length > 1) {
-
             int middleIndex = array.length / 2;
-            x = sortArray(copyArray(array, 0, middleIndex));
-            y = sortArray(copyArray(array, middleIndex + 1, array.length - 1));
+            mergeSort(copyArray(array, 0, middleIndex),
+                    copyArray(array, middleIndex + 1, array.length - 1));
         }
-        return mergeSort(x, y);
     }
 
     public int[] copyArray(int[] array, int low, int high) {
-
         int[] newArray = null;
         for (int i = low; i < high; i++) {
             newArray[i] = array[i];
         }
-
         return newArray;
     }
 
@@ -48,8 +40,6 @@ public class Sort {
                 m++;
             }
         }
-
         return result;
     }
-
 }
