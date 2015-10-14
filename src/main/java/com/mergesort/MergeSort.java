@@ -1,7 +1,45 @@
 package com.mergesort;
 
-
 public class MergeSort {
-    public static void main() {
+
+    public void sortArray(int[] array) {
+        if (array.length > 1) {
+            int middleIndex = array.length / 2;
+            mergeSort(copyArray(array, 0, middleIndex),
+                    copyArray(array, middleIndex + 1, array.length - 1));
+        }
+    }
+
+    public int[] copyArray(int[] array, int low, int high) {
+        int[] newArray = null;
+        for (int i = low; i < high; i++) {
+            newArray[i] = array[i];
+        }
+        return newArray;
+    }
+
+    public int[] mergeSort(int[] a, int[] b) {
+        int[] result = null;
+        int resultLength = a.length + b.length;
+        int k = 0,m = 0; //счетчики индексов входящих массивов
+
+        for (int i = 0; i < resultLength; i++) {
+            if (k <= a.length && m <= b.length) {
+                if (a[k] < b[m]) {
+                    result[i] = a[k];
+                    k++;
+                } else {
+                    result[i] = b[m];
+                    m++;
+                }
+            } else if (k <= a.length) {
+                result[i] = a[k];
+                k++;
+            } else {
+                result[i] = b[m];
+                m++;
+            }
+        }
+        return result;
     }
 }
