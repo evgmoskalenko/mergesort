@@ -3,15 +3,10 @@ package com.mergesort;
 
 public class Main {
     public static void main(String[] args) {
-        InputData inputData = new InputData();
-        inputData.chooseData();
+        InputData.chooseData();
 
-        MergeSort mergeSort = new MergeSort();
-        int[] arr = {5, 17, 12, 7};
-        mergeSort.sortArray(arr);
+        int[] arr = {5, 17, 12, 7, 0, -5};
+        MergeSort.doSort(arr);
 
-        for (int i : mergeSort.getResult()) {
-            System.out.print(i + " ");
-        }
     }
 }
