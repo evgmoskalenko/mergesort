@@ -1,50 +1,46 @@
 package com.mergesort;
 
 public class MergeSort {
-    private int[] result;
 
-    public int[] getResult() {
-        return result;
+    public static void setArray(int[] array) {
+        int leftIndex = 0;
+        int rightIndex = array.length - 1;
+        separateArray(array, leftIndex, rightIndex);
     }
 
-    public int[] sortArray(int[] array) {
-        if (array.length < 2) return array;
-        int middleIndex = array.length / 2;
-        return mergeSort(sortArray(copyArray(array, 0, middleIndex - 1)),
-                    sortArray(copyArray(array, middleIndex, array.length - 1)));
-    }
-
-    private int[] copyArray(int[] array, int low, int high) {
-        int[] newArray = new int[high - low + 1];
-        for (int i = low, j = 0; i <= high && j < newArray.length; i++, j++) {
-            newArray[j] = array[i];
+    private static void separateArray(int[] array, int leftIndex, int rightIndex) {
+        if (leftIndex < rightIndex) {
+            int middleIndex = (leftIndex + rightIndex) / 2;
+            separateArray(array, leftIndex, middleIndex);
+            separateArray(array, middleIndex + 1, rightIndex);
+            mergeSort(array, leftIndex, middleIndex, rightIndex);
         }
-        return newArray;
     }
 
-    private int[] mergeSort(int[] a, int[] b) {
-        int resultLength = a.length + b.length;
-        result = new int[resultLength];
+    private static void mergeSort(int[] array, int leftIndex, int middleIndex, int rightIndex) {
+        int[] buffer = new int[array.length];
+        int leftLength = middleIndex - leftIndex + 1;
+        int rightLength = rightIndex - middleIndex;
+
         int k = 0;
         int m = 0; //counters of indexes of input arrays
 
-        for (int i = 0; i < resultLength; i++) {
-            if (k < a.length && m < b.length) {
-                if (a[k] < b[m]) {
-                    result[i] = a[k];
+        for (int i = 0; i < array.length; i++) {
+            if (k < leftLength && m < rightLength) {
+                if (buffer[k] < buffer[m]) {
+                    array[i] = buffer[k];
                     k++;
                 } else {
-                    result[i] = b[m];
+                    array[i] = buffer[m];
                     m++;
                 }
-            } else if (k < a.length) {
-                result[i] = a[k];
+            } else if (k < leftLength) {
+                array[i] = buffer[k];
                 k++;
             } else {
-                result[i] = b[m];
+                array[i] = buffer[m];
                 m++;
             }
         }
-        return result;
     }
 }
