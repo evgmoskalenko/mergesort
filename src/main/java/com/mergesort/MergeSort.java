@@ -2,7 +2,7 @@ package com.mergesort;
 
 public class MergeSort {
 
-    public static void setArray(int[] array) {
+    public static void doSort(int[] array) {
         int leftIndex = 0;
         int rightIndex = array.length - 1;
         separateArray(array, leftIndex, rightIndex);
