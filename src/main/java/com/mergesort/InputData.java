@@ -1,7 +1,9 @@
 package com.mergesort;
 
-import java.io.FileReader;
-import java.io.IOException;
+import jdk.internal.util.xml.impl.Input;
+
+import java.io.*;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -10,26 +12,30 @@ import java.util.Scanner;
  */
 
 public class InputData {
+//     public static void main(String[] args) {
+//            chooseData();
+//     }
 
     public static void chooseData() {
-        System.out.println("\n Please choose input data: 1 - from txt files, 2 - from keyboard.\n If you choose: '1', and the file does not exist - default input by keyboard");
+        System.out.println("\n Please choose input data: 1 - from txt files, 2 - from keyboard.\n Default input by keyboard, if the file does not exist");
         Scanner in = new Scanner(System.in);
-        System.out.println("\n Choose: 1 - from txt files, 2 - from keyboard");
+        System.out.print("\n Choose: ");
         int methodDataEntry = in.nextInt();
         if (methodDataEntry == 1) {
-            //System.out.println("\nYour choose: 1 - from txt files");
             filesData();
         } else {
-            //System.out.println("\nYour choose: 2 - from keyboard");
             keyboardData();
         }
     }
 
     public static void filesData() {
-        try (FileReader reader = new FileReader("/Users/apple/IdeaProjects/mergesort/files/inputdata.txt")) {
-            int c;
-            while ((c = reader.read()) != -1) {
-                System.out.print((char) c);
+        ClassLoader classLoader = InputData.class.getClassLoader();
+        File file = new File(classLoader.getResource("inputdata.txt").getFile());
+
+        try (FileReader reader = new FileReader(file)) {
+            int foobar;
+            while ((foobar = reader.read()) != -1) {
+                System.out.print((char) foobar);
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
