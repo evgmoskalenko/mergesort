@@ -17,7 +17,7 @@ public class InputData {
 //     }
 
     public static void chooseData() {
-        System.out.println("\n Please choose input data: 1 - from txt files, 2 - from keyboard.\n Default input by keyboard, if the file does not exist");
+        System.out.println("\n Please choose input data: 1 - from txt files, 2 - from keyboard.\n Default input by keyboard, if the file does not exist!");
         Scanner in = new Scanner(System.in);
         System.out.print("\n Choose: ");
         int methodDataEntry = in.nextInt();
@@ -42,16 +42,27 @@ public class InputData {
         }
     }
 
+//    if (in.hasNextInt() && in.nextInt() > 0) {
+//        //do
+//    } else {
+//        System.out.println(" Your value is not an integer. Please try again!");
+//    }
+
     public static int[] keyboardData() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter the length of the array:");
+
+        System.out.print(" Enter the length of the array: ");
+
         int arrayLength = in.nextInt();
+
         System.out.println("Input " + arrayLength + " numbers");
+
         int[] array = new int[arrayLength];
         for (int i = 0; i < arrayLength; i++) {
             int inputDataNumber = in.nextInt();
             array[i] = inputDataNumber;
         }
+
         return array;
     }
 }

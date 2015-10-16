@@ -7,21 +7,21 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * Created by ${freedomserg} on 16.10.2015.
+ * Output data: 1 - to txt files, 2 - to console.
+ * Default output to console!
  */
+
 public class OutputData {
     private static final String filePath = "D:\\study_area\\projects\\mergesort\\files\\outputdata.txt";
 
     public static void ChooseOutput(int[] array) {
-        System.out.println("\n Please choose output data: 1 - to txt file, 2 - to console.\n If you choose: '1', and the file does not exist - default output to console");
+        System.out.println("\n Please choose output data: 1 - to txt file, 2 - to console.\n Default output to console!");
         Scanner in = new Scanner(System.in);
-        System.out.println("\n Choose: 1 - to txt file, 2 - to console");
+        System.out.println("\n Choose: ");
         int methodOutput = in.nextInt();
         if (methodOutput == 1) {
-            //System.out.println("\nYour choose: 1 - to txt file");
             writeToFile(array);
         } else {
-            //System.out.println("\nYour choose: 2 - to console");
             consoleOutput(array);
         }
     }
