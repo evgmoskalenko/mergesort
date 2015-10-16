@@ -1,23 +1,24 @@
 package com.mergesort;
 
-import java.util.Arrays;
-
 public class MergeSort {
 
     public static void doSort(int[] array) {
         int leftIndex = 0;
         int rightIndex = array.length - 1;
-        splitArray(array, leftIndex, rightIndex);
+        separateArray(array, leftIndex, rightIndex);
     }
 
-    private static void splitArray(int[] array, int leftIndex, int rightIndex) {
+    private static void separateArray(int[] array, int leftIndex, int rightIndex) {
         if (leftIndex < rightIndex) {
             int middleIndex = (leftIndex + rightIndex) / 2;
-            splitArray(array, leftIndex, middleIndex);
-            splitArray(array, middleIndex + 1, rightIndex);
+            separateArray(array, leftIndex, middleIndex);
+            separateArray(array, middleIndex + 1, rightIndex);
             mergeSort(array, leftIndex, middleIndex, rightIndex);
 
-            System.out.println(Arrays.toString(array));
+            for (int i : array) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
         }
     }
 
