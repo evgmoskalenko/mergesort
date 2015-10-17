@@ -33,6 +33,19 @@ public class OutputData {
         }
     }
 
+//    private static void writeToFile(int[] array) {
+//
+//        ClassLoader classLoader = OutputData.class.getClassLoader();
+//        File file = new File(classLoader.getResource("SortedDataValuesArray.txt").getFile());
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+//            for (int i : array) {
+//                writer.write(i + " ");
+//            }
+//        } catch (IOException e) {
+//            System.err.println("Something wrong");
+//        }
+//    }
+
     private static void writeToFile(int[] array) {
         File file = new File(fileName);
         try (PrintWriter writer = new PrintWriter(file.getAbsoluteFile())) {
