@@ -1,6 +1,7 @@
 package com.mergesort;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
@@ -12,7 +13,8 @@ import java.util.Scanner;
  */
 
 public class OutputData {
-    private static final String filePath = "D:\\study_area\\projects\\mergesort\\files\\outputdata.txt";
+    //private static final String filePath = "D:\\study_area\\projects\\mergesort\\files\\outputdata.txt";
+    private static final String filePath = "SortedDataValuesArray.txt";
 
     public static void ChooseOutput(int[] array) {
         System.out.println("\n Please choose output data: 1 - to txt file, 2 - to console.\n Default output to console!");
