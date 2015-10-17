@@ -17,15 +17,19 @@ public class InputData {
         System.out.println("\n Please choose input data: 1 - from txt files, 2 - from keyboard.\n Default input by keyboard, if the file does not exist!");
         Scanner in = new Scanner(System.in);
         System.out.print("\n Choose: ");
-        int methodDataEntry = in.nextInt();
-        if (methodDataEntry == 1) {
-            filesData();
-        } else {
+        String methodDataEntry = in.nextLine();
+        try {
+            if (Integer.parseInt(methodDataEntry) == 1) {
+                filesData();
+            } else {
+                keyboardData();
+            }
+        } catch (NumberFormatException ex) {
             keyboardData();
         }
     }
 
-    public static void filesData() {
+    private static void filesData() {
         ClassLoader classLoader = InputData.class.getClassLoader();
         File file = new File(classLoader.getResource("inputdata.txt").getFile());
 
@@ -42,7 +46,6 @@ public class InputData {
     private static int[] keyboardData() {
         Scanner in = new Scanner(System.in);
         int arrayLength = 0;
-
         boolean isLengthInCorrect = true;
         while (isLengthInCorrect) {
             System.out.print(" Enter the length of the array: ");
