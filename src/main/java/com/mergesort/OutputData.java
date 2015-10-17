@@ -14,14 +14,18 @@ import java.util.Scanner;
 
 public class OutputData {
 
-    public static void ChooseOutput(int[] array) {
+    public static void chooseOutput(int[] array) {
         System.out.println("\n Please choose output data: 1 - to txt file, 2 - to console.\n Default output to console!");
         Scanner in = new Scanner(System.in);
-        System.out.println("\n Choose: ");
-        int methodOutput = in.nextInt();
-        if (methodOutput == 1) {
-            writeToFile(array);
-        } else {
+        System.out.print("\n Choose: ");
+        String methodOutput = in.nextLine();
+        try {
+            if (Integer.parseInt(methodOutput) == 1) {
+                writeToFile(array);
+            } else {
+                consoleOutput(array);
+            }
+        } catch (NumberFormatException e) {
             consoleOutput(array);
         }
     }
