@@ -15,7 +15,14 @@ import java.util.Scanner;
 
 public class InputData {
 
-    public static void chooseData() {
+    private static int[] array;
+
+    public static int[] getArray() {
+        chooseData();
+        return array;
+    }
+
+    private static void chooseData() {
         System.out.println("\n Please choose input data: 1 - from txt files, 2 - from keyboard.\n Default input by keyboard, if the file does not exist!");
         Scanner in = new Scanner(System.in);
         System.out.print("\n Choose: ");
@@ -36,18 +43,16 @@ public class InputData {
         File file = new File(classLoader.getResource("inputdata.txt").getFile());
         ArrayList<Integer> list = new ArrayList<>();
 
-        try (FileReader reader = new FileReader(file)) {
-            int characterValue;
-            while ((characterValue = reader.read()) != -1) {
-                list.add(characterValue);
-                //System.out.print((char) characterValue);
+        try (Scanner in = new Scanner(file)) {
+            while (in.hasNextInt()) {
+                list.add(in.nextInt());
             }
         } catch (IOException ex) {
             System.out.println("Something was happend! :-(");
         }
 
         Integer[] arrayInt = list.toArray(new Integer[list.size()]);
-        int[] array = new int[arrayInt.length];
+        array = new int[arrayInt.length];
         for (int i = 0; i < array.length; i++) {
             array[i] = arrayInt[i];
         }
@@ -71,13 +76,12 @@ public class InputData {
             }
         }
         System.out.println(" Input " + arrayLength + " numbers: ");
-        int[] array = new int[arrayLength];
+        array = new int[arrayLength];
 
         for (int i = 0; i < arrayLength; i++) {
             boolean isElementInCorrect = true;
             while (isElementInCorrect) {
                 try {
-                    System.out.print(" ");
                     String input = in.nextLine();
                     array[i] = Integer.parseInt(input);
                     isElementInCorrect = false;
