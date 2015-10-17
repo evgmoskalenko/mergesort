@@ -15,7 +15,14 @@ import java.util.Scanner;
 
 public class InputData {
 
-    public static void chooseData() {
+    private static int[] array;
+
+    public static int[] getArray() {
+        chooseData();
+        return array;
+    }
+
+    private static void chooseData() {
         System.out.println("\n Please choose input data: 1 - from txt files, 2 - from keyboard.\n Default input by keyboard, if the file does not exist!");
         Scanner in = new Scanner(System.in);
         System.out.print("\n Choose: ");
@@ -51,8 +58,6 @@ public class InputData {
         for (int i = 0; i < array.length; i++) {
             array[i] = arrayInt[i];
         }
-
-        MergeSort.doSort(array);
     }
 
     private static void keyboardData() {
@@ -88,6 +93,5 @@ public class InputData {
                 }
             }
         }
-        MergeSort.doSort(array);
     }
 }

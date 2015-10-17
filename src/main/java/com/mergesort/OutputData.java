@@ -10,6 +10,11 @@ import java.util.Scanner;
  */
 
 public class OutputData {
+
+    public static void setArray(int[] array) {
+        chooseOutput(array);
+    }
+
     private static final String fileName = "D://SortedDataValuesArray.txt";
 
     public static void chooseOutput(int[] array) {
