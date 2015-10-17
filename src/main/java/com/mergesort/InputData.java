@@ -51,8 +51,6 @@ public class InputData {
         for (int i = 0; i < array.length; i++) {
             array[i] = arrayInt[i];
         }
-
-        MergeSort.doSort(array);
     }
 
     private static void keyboardData() {
@@ -88,6 +86,5 @@ public class InputData {
                 }
             }
         }
-        MergeSort.doSort(array);
     }
 }
