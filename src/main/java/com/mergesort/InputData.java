@@ -12,9 +12,6 @@ import java.util.Scanner;
  */
 
 public class InputData {
-//     public static void main(String[] args) {
-//            chooseData();
-//     }
 
     public static void chooseData() {
         System.out.println("\n Please choose input data: 1 - from txt files, 2 - from keyboard.\n Default input by keyboard, if the file does not exist!");
@@ -33,34 +30,48 @@ public class InputData {
         File file = new File(classLoader.getResource("inputdata.txt").getFile());
 
         try (FileReader reader = new FileReader(file)) {
-            int foobar;
-            while ((foobar = reader.read()) != -1) {
-                System.out.print((char) foobar);
+            int characterValue;
+            while ((characterValue = reader.read()) != -1) {
+                System.out.print((char) characterValue);
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Something was happend! :-(");
         }
     }
 
-//    if (in.hasNextInt() && in.nextInt() > 0) {
-//        //do
-//    } else {
-//        System.out.println(" Your value is not an integer. Please try again!");
-//    }
-
-    public static int[] keyboardData() {
+    private static int[] keyboardData() {
         Scanner in = new Scanner(System.in);
+        int arrayLength = 0;
 
-        System.out.print(" Enter the length of the array: ");
-
-        int arrayLength = in.nextInt();
-
-        System.out.println("Input " + arrayLength + " numbers");
-
+        boolean isLengthInCorrect = true;
+        while (isLengthInCorrect) {
+            System.out.print(" Enter the length of the array: ");
+            try {
+                String input = in.nextLine();
+                arrayLength = Integer.parseInt(input);
+                if (arrayLength > 0) isLengthInCorrect = false;
+                else {
+                    System.out.print(" Length cannot be \"0\" or negative, try again please.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.print(" Your entered not an \"Integer\" length, try again please.");
+            }
+        }
+        System.out.println(" Input " + arrayLength + " numbers: ");
         int[] array = new int[arrayLength];
+
         for (int i = 0; i < arrayLength; i++) {
-            int inputDataNumber = in.nextInt();
-            array[i] = inputDataNumber;
+            boolean isElementInCorrect = true;
+            while (isElementInCorrect) {
+                try {
+                    System.out.print(" ");
+                    String input = in.nextLine();
+                    array[i] = Integer.parseInt(input);
+                    isElementInCorrect = false;
+                } catch (NumberFormatException e) {
+                    System.out.print(" Your entered not an \"Integer\" length, try again please.");
+                }
+            }
         }
 
         return array;

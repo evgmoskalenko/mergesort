@@ -29,7 +29,7 @@ public class OutputData {
     private static void writeToFile(int[] array) {
 
         ClassLoader classLoader = OutputData.class.getClassLoader();
-        File file = new File(classLoader.getResource("outputdata.txt").getFile());
+        File file = new File(classLoader.getResource("SortedDataValuesArray.txt").getFile());
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             for (int i : array) {
                 writer.write(i + " ");
