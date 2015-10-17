@@ -16,8 +16,6 @@ public class MergeSort {
             splitArray(array, leftIndex, middleIndex);
             splitArray(array, middleIndex + 1, rightIndex);
             mergeSort(array, leftIndex, middleIndex, rightIndex);
-
-            System.out.println(Arrays.toString(array));
         }
     }
 

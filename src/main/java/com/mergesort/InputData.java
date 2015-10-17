@@ -3,7 +3,9 @@ package com.mergesort;
 import jdk.internal.util.xml.impl.Input;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -32,18 +34,28 @@ public class InputData {
     private static void filesData() {
         ClassLoader classLoader = InputData.class.getClassLoader();
         File file = new File(classLoader.getResource("inputdata.txt").getFile());
+        ArrayList<Integer> list = new ArrayList<>();
 
         try (FileReader reader = new FileReader(file)) {
             int characterValue;
             while ((characterValue = reader.read()) != -1) {
-                System.out.print((char) characterValue);
+                list.add(characterValue);
+                //System.out.print((char) characterValue);
             }
         } catch (IOException ex) {
             System.out.println("Something was happend! :-(");
         }
+
+        Integer[] arrayInt = list.toArray(new Integer[list.size()]);
+        int[] array = new int[arrayInt.length];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = arrayInt[i];
+        }
+
+        MergeSort.doSort(array);
     }
 
-    private static int[] keyboardData() {
+    private static void keyboardData() {
         Scanner in = new Scanner(System.in);
         int arrayLength = 0;
         boolean isLengthInCorrect = true;
@@ -76,7 +88,6 @@ public class InputData {
                 }
             }
         }
-
-        return array;
+        MergeSort.doSort(array);
     }
 }
