@@ -3,7 +3,9 @@ package com.mergesort;
 import jdk.internal.util.xml.impl.Input;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -12,57 +14,81 @@ import java.util.Scanner;
  */
 
 public class InputData {
-//     public static void main(String[] args) {
-//            chooseData();
-//     }
 
-    public static void chooseData() {
+    private static int[] array;
+
+    public static int[] getArray() {
+        chooseData();
+        return array;
+    }
+
+    private static void chooseData() {
         System.out.println("\n Please choose input data: 1 - from txt files, 2 - from keyboard.\n Default input by keyboard, if the file does not exist!");
         Scanner in = new Scanner(System.in);
         System.out.print("\n Choose: ");
-        int methodDataEntry = in.nextInt();
-        if (methodDataEntry == 1) {
-            filesData();
-        } else {
+        String methodDataEntry = in.nextLine();
+        try {
+            if (Integer.parseInt(methodDataEntry) == 1) {
+                filesData();
+            } else {
+                keyboardData();
+            }
+        } catch (NumberFormatException ex) {
             keyboardData();
         }
     }
 
-    public static void filesData() {
+    private static void filesData() {
         ClassLoader classLoader = InputData.class.getClassLoader();
         File file = new File(classLoader.getResource("inputdata.txt").getFile());
+        ArrayList<Integer> list = new ArrayList<>();
 
-        try (FileReader reader = new FileReader(file)) {
-            int foobar;
-            while ((foobar = reader.read()) != -1) {
-                System.out.print((char) foobar);
+        try (Scanner in = new Scanner(file)) {
+            while (in.hasNextInt()) {
+                list.add(in.nextInt());
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Something was happend! :-(");
+        }
+
+        Integer[] arrayInt = list.toArray(new Integer[list.size()]);
+        array = new int[arrayInt.length];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = arrayInt[i];
         }
     }
 
-//    if (in.hasNextInt() && in.nextInt() > 0) {
-//        //do
-//    } else {
-//        System.out.println(" Your value is not an integer. Please try again!");
-//    }
-
-    public static int[] keyboardData() {
+    private static void keyboardData() {
         Scanner in = new Scanner(System.in);
-
-        System.out.print(" Enter the length of the array: ");
-
-        int arrayLength = in.nextInt();
-
-        System.out.println("Input " + arrayLength + " numbers");
-
-        int[] array = new int[arrayLength];
-        for (int i = 0; i < arrayLength; i++) {
-            int inputDataNumber = in.nextInt();
-            array[i] = inputDataNumber;
+        int arrayLength = 0;
+        boolean isLengthInCorrect = true;
+        while (isLengthInCorrect) {
+            System.out.print(" Enter the length of the array: ");
+            try {
+                String input = in.nextLine();
+                arrayLength = Integer.parseInt(input);
+                if (arrayLength > 0) isLengthInCorrect = false;
+                else {
+                    System.out.print(" Length cannot be \"0\" or negative, try again please.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.print(" Your entered not an \"Integer\" length, try again please.");
+            }
         }
+        System.out.println(" Input " + arrayLength + " numbers: ");
+        array = new int[arrayLength];
 
-        return array;
+        for (int i = 0; i < arrayLength; i++) {
+            boolean isElementInCorrect = true;
+            while (isElementInCorrect) {
+                try {
+                    String input = in.nextLine();
+                    array[i] = Integer.parseInt(input);
+                    isElementInCorrect = false;
+                } catch (NumberFormatException e) {
+                    System.out.print(" Your entered not an \"Integer\" length, try again please.");
+                }
+            }
+        }
     }
 }
