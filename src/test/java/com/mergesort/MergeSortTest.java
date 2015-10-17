@@ -5,15 +5,7 @@ import org.junit.Test;
 
 import java.util.Random;
 
-
 public class MergeSortTest {
-
-    /*
-    @Test()
-    public void testMain() throws Exception {
-        System.out.println("====================");
-    }
-    */
 
     @Test()
     public void mergeSortTest() throws Exception {
@@ -31,5 +23,4 @@ public class MergeSortTest {
             }
         }
     }
-
 }
