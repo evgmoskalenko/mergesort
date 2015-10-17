@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         //InputData.chooseData();
 
-        int[] arr = {5, 17, 12, 7, 0, -5};
+        int[] arr = {0, 26, 12, 7, 0, -50};
 
         OutputData.chooseOutput(arr);
 
