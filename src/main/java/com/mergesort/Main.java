@@ -6,7 +6,8 @@ public class Main {
         InputData.chooseData();
 
         int[] arr = {5, 17, 12, 7, 0, -5};
-        MergeSort.doSort(arr);
+        //MergeSort.doSort(arr);
+
 
     }
 }

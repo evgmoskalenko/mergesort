@@ -1,6 +1,7 @@
 package com.mergesort;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
@@ -12,7 +13,6 @@ import java.util.Scanner;
  */
 
 public class OutputData {
-    private static final String filePath = "D:\\study_area\\projects\\mergesort\\files\\outputdata.txt";
 
     public static void ChooseOutput(int[] array) {
         System.out.println("\n Please choose output data: 1 - to txt file, 2 - to console.\n Default output to console!");
@@ -27,7 +27,10 @@ public class OutputData {
     }
 
     private static void writeToFile(int[] array) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+
+        ClassLoader classLoader = OutputData.class.getClassLoader();
+        File file = new File(classLoader.getResource("outputdata.txt").getFile());
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             for (int i : array) {
                 writer.write(i + " ");
             }
