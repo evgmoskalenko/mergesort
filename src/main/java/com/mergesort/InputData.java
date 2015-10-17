@@ -30,12 +30,12 @@ public class InputData {
         File file = new File(classLoader.getResource("inputdata.txt").getFile());
 
         try (FileReader reader = new FileReader(file)) {
-            int foobar;
-            while ((foobar = reader.read()) != -1) {
-                System.out.print((char) foobar);
+            int characterValue;
+            while ((characterValue = reader.read()) != -1) {
+                System.out.print((char) characterValue);
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Something was happend! :-(");
         }
     }
 
@@ -64,6 +64,7 @@ public class InputData {
             boolean isElementInCorrect = true;
             while (isElementInCorrect) {
                 try {
+                    System.out.print(" ");
                     String input = in.nextLine();
                     array[i] = Integer.parseInt(input);
                     isElementInCorrect = false;
