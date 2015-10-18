@@ -11,13 +11,14 @@ import java.util.Scanner;
 
 public class OutputData {
 
+    private static final String currentDir = System.getProperty("user.dir");
+    private static final String dirFileInProject = "/files/SortedDataValuesArray.txt";
+
     public static void setArray(int[] array) {
         chooseOutput(array);
     }
 
-    private static final String fileName = "/Users/apple/IdeaProjects/mergesort/files/SortedDataValuesArray.txt";
-
-    public static void chooseOutput(int[] array) {
+    private static void chooseOutput(int[] array) {
         System.out.println("\n Please choose output data: 1 - to txt file, 2 - to console.\n Default output to console!");
         Scanner in = new Scanner(System.in);
         System.out.print("\n Choose: ");
@@ -34,7 +35,9 @@ public class OutputData {
     }
 
     private static void writeToFile(int[] array) {
-        File file = new File(fileName);
+
+        File file = new File(currentDir, dirFileInProject);
+
         try (PrintWriter writer = new PrintWriter(file.getAbsoluteFile())) {
             for (int i : array) {
                 writer.print(i + " ");
