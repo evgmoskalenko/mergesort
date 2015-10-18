@@ -11,13 +11,12 @@ import java.util.Scanner;
 
 public class OutputData {
 
+    private static final String fileName = "/Users/apple/IdeaProjects/mergesort/files/SortedDataValuesArray.txt";
+
     public static void setArray(int[] array) {
         chooseOutput(array);
     }
-
-    private static final String fileName = "/Users/apple/IdeaProjects/mergesort/files/SortedDataValuesArray.txt";
-
-    public static void chooseOutput(int[] array) {
+    private static void chooseOutput(int[] array) {
         System.out.println("\n Please choose output data: 1 - to txt file, 2 - to console.\n Default output to console!");
         Scanner in = new Scanner(System.in);
         System.out.print("\n Choose: ");
