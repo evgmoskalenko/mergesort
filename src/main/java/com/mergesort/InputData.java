@@ -51,23 +51,22 @@ public class InputData {
             System.out.println("Something was happend! :-(");
         }
 
-        Integer[] arrayInt = list.toArray(new Integer[list.size()]);
-        array = new int[arrayInt.length];
+        array = new int[list.size()];
         for (int i = 0; i < array.length; i++) {
-            array[i] = arrayInt[i];
+            array[i] = list.get(i);
         }
     }
 
     private static void keyboardData() {
         Scanner in = new Scanner(System.in);
         int arrayLength = 0;
-        boolean isLengthInCorrect = true;
-        while (isLengthInCorrect) {
+        boolean isLengthIncorrect = true;
+        while (isLengthIncorrect) {
             System.out.print(" Enter the length of the array: ");
             try {
                 String input = in.nextLine();
                 arrayLength = Integer.parseInt(input);
-                if (arrayLength > 0) isLengthInCorrect = false;
+                if (arrayLength > 0) isLengthIncorrect = false;
                 else {
                     System.out.print(" Length cannot be \"0\" or negative, try again please.");
                 }
@@ -79,12 +78,12 @@ public class InputData {
         array = new int[arrayLength];
 
         for (int i = 0; i < arrayLength; i++) {
-            boolean isElementInCorrect = true;
-            while (isElementInCorrect) {
+            boolean isElementIncorrect = true;
+            while (isElementIncorrect) {
                 try {
                     String input = in.nextLine();
                     array[i] = Integer.parseInt(input);
-                    isElementInCorrect = false;
+                    isElementIncorrect = false;
                 } catch (NumberFormatException e) {
                     System.out.print(" Your entered not an \"Integer\" length, try again please.");
                 }
