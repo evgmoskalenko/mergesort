@@ -1,15 +1,7 @@
 package com.mergesort;
 
-import junit.framework.AssertionFailedError;
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Random;
 
