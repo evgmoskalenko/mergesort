@@ -11,11 +11,13 @@ import java.util.Scanner;
 
 public class OutputData {
 
-    private static final String fileName = "/Users/apple/IdeaProjects/mergesort/files/SortedDataValuesArray.txt";
+    private static final String currentDir = System.getProperty("user.dir");
+    private static final String dirFileInProject = "/files/SortedDataValuesArray.txt";
 
     public static void setArray(int[] array) {
         chooseOutput(array);
     }
+
     private static void chooseOutput(int[] array) {
         System.out.println("\n Please choose output data: 1 - to txt file, 2 - to console.\n Default output to console!");
         Scanner in = new Scanner(System.in);
@@ -32,21 +34,10 @@ public class OutputData {
         }
     }
 
-//    private static void writeToFile(int[] array) {
-//
-//        ClassLoader classLoader = OutputData.class.getClassLoader();
-//        File file = new File(classLoader.getResource("SortedDataValuesArray.txt").getFile());
-//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-//            for (int i : array) {
-//                writer.write(i + " ");
-//            }
-//        } catch (IOException e) {
-//            System.err.println("Something wrong");
-//        }
-//    }
-
     private static void writeToFile(int[] array) {
-        File file = new File(fileName);
+
+        File file = new File(currentDir, dirFileInProject);
+
         try (PrintWriter writer = new PrintWriter(file.getAbsoluteFile())) {
             for (int i : array) {
                 writer.print(i + " ");
