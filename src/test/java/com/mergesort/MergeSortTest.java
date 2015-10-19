@@ -8,9 +8,9 @@ import java.util.Random;
 public class MergeSortTest {
 
     @Test()
-    public void mergeSortTest() throws Exception {
-        for (int i = 0; i < 100; i++) {
-            int[] arr = new int[50];
+    public void randomDataArrayForTestMergeSort() throws Exception {
+        for (int i = 0; i < 5; i++) {
+            int[] arr = new int[5];
             Random random = new Random();
             for (int j = 0; j < arr.length; j++) {
                 arr[j] = random.nextInt(200);
@@ -25,20 +25,20 @@ public class MergeSortTest {
     }
 
     @Test()
-    public void mergeSortTest2() throws Exception {
-        int[] initial = {4, 7, 0, -10};
-        int[] expected = {-10, 0, 4, 7};
-        MergeSort.doSort(initial);
-        Assert.assertArrayEquals(expected, initial);
+    public void differentDemoDataArrayForTestMergeSort() throws Exception {
+        int[] actualResults = {4, 7, 0, -10};
+        int[] expectedResults = {-10, 0, 4, 7};
+        MergeSort.doSort(actualResults);
+        Assert.assertArrayEquals(expectedResults, actualResults);
     }
 
     @Test()
-    public void mergeSortTest3() throws Exception {
-        int[] initial = {4, 7, 0, -10, -7};
-        int[] expected = {4, 7, 0, -10, -7};
-        MergeSort.doSort(initial);
-        Arrays.sort(expected);
-        Assert.assertArrayEquals(expected, initial);
+    public void identicDemoDataArrayForTestMergeSort() throws Exception {
+        int[] actualResults = {4, 7, 0, -10, -7};
+        int[] expectedResults = {4, 7, 0, -10, -7};
+        MergeSort.doSort(actualResults);
+        Arrays.sort(expectedResults);
+        Assert.assertArrayEquals(expectedResults, actualResults);
     }
 
 }
