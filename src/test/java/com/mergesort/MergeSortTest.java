@@ -16,8 +16,8 @@ public class MergeSortTest {
                 arr[j] = random.nextInt(200);
             }
             MergeSort.doSort(arr);
-            for (int j = 0; j > arr.length; j++) {
-                if(arr[j] < arr[j+1]) {
+            for (int j = 0; j < arr.length - 1; j++) {
+                if(arr[j] > arr[j+1]) {
                     Assert.fail("The previous element cannot be more than the next one");
                 }
             }
