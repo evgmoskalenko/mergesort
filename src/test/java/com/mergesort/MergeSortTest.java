@@ -49,7 +49,7 @@ public class MergeSortTest {
     }
 
     @Test()
-    public void twoDifferentMethodsOfsorting() throws Exception {
+    public void twoDifferentMethodsOfSorting() throws Exception {
         int[] actualResults = {4, 7, 0, -10, -7};
         int[] expectedResults = {4, 7, 0, -10, -7};
         MergeSort.doSort(actualResults);
