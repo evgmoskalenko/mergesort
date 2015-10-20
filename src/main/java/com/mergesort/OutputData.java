@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class OutputData {
 
     private static final String currentDir = System.getProperty("user.dir");
-    private static final String dirFileInProject = "/files/SortedDataValuesArray.txt";
+    private static final String dirFileInProject = "/SortedDataValuesArray.txt";
 
     public static void setArray(int[] array) {
         chooseOutput(array);
