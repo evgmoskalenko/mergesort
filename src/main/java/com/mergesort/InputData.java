@@ -1,11 +1,7 @@
 package com.mergesort;
 
-import jdk.internal.util.xml.impl.Input;
-
 import java.io.*;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -40,7 +36,7 @@ public class InputData {
 
     private static void filesData() {
         ClassLoader classLoader = InputData.class.getClassLoader();
-        File file = new File(classLoader.getResource("inputdata.txt").getFile());
+        File file = new File(classLoader.getResource("InputSortedDataValuesArray.txt.txt").getFile());
         ArrayList<Integer> list = new ArrayList<>();
 
         try (Scanner in = new Scanner(file)) {

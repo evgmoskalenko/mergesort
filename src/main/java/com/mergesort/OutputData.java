@@ -13,7 +13,7 @@ public class OutputData {
 
     private static final String currentDir = System.getProperty("user.dir");
     private static final String fs = System.getProperty("file.separator");
-    private static final String dirFileInProject = fs + "files" + fs + "SortedDataValuesArray.txt";
+    private static final String dirFileInProject = fs + "files" + fs + "OutputSortedDataValuesArray.txt";
 
     public static void setArray(int[] array) {
         chooseOutput(array);
