@@ -74,7 +74,7 @@ public class InputData {
                 System.out.print(" Your entered not an \"Integer\" length, try again please.");
             }
         }
-        System.out.println(" Input " + arrayLength + " numbers: ");
+        System.out.println(" Input " + arrayLength + " numbers (-2147483648 to 2147483647): ");
         array = new int[arrayLength];
 
         for (int i = 0; i < arrayLength; i++) {
