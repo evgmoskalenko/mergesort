@@ -14,6 +14,7 @@ public class MergeSortTest {
         int[] expectedResults = {-10, 0, 4, 7};
         MergeSort.doSort(actualResults);
         Assert.assertArrayEquals(expectedResults, actualResults);
+        System.out.println("Test \"evenValueDemoDataArray\" complete!");
     }
 
     @Test()
@@ -22,6 +23,7 @@ public class MergeSortTest {
         int[] expectedResults = {-10, 0, 4, 7, 100500};
         MergeSort.doSort(actualResults);
         Assert.assertArrayEquals(expectedResults, actualResults);
+        System.out.println("Test \"oddValueForDemoDataArray\" complete!");
     }
 
     @Test()
@@ -30,6 +32,7 @@ public class MergeSortTest {
         int[] expectedResults = {-2, -1, 0, 1, 2};
         MergeSort.doSort(actualResults);
         Assert.assertArrayEquals(expectedResults, actualResults);
+        System.out.println("Test \"boundaryValueForDemoDataArray\" complete!");
     }
 
     @Test()
@@ -38,6 +41,7 @@ public class MergeSortTest {
         int[] expectedResults = {-2147483648, 0, 7, 10, 2147483647};
         MergeSort.doSort(actualResults);
         Assert.assertArrayEquals(expectedResults, actualResults);
+        System.out.println("Test \"boundaryIntTypeValueForDemoDataArray\" complete!");
     }
 
     @Test()
@@ -46,6 +50,7 @@ public class MergeSortTest {
         int[] expectedResults = {0, 0, 0, 1, 2};
         MergeSort.doSort(actualResults);
         Assert.assertArrayEquals(expectedResults, actualResults);
+        System.out.println("Test \"identicalValueForDemoDataArray\" complete!");
     }
 
     @Test()
@@ -55,6 +60,7 @@ public class MergeSortTest {
         MergeSort.doSort(actualResults);
         Arrays.sort(expectedResults);
         Assert.assertArrayEquals(expectedResults, actualResults);
+        System.out.println("Test \"twoDifferentMethodsOfSorting\" complete!");
     }
 
     @Ignore("Incorrect test!!! Should not to do, bad test.")
