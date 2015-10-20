@@ -14,7 +14,7 @@ public class MergeSortTest {
         int[] expectedResults = {-10, 0, 4, 7};
         MergeSort.doSort(actualResults);
         Assert.assertArrayEquals(expectedResults, actualResults);
-        System.out.println("Test \"even value demo data array\" complete!");
+        System.out.println("Test \"even count value demo data array\" complete!");
     }
 
     @Test()
@@ -23,7 +23,7 @@ public class MergeSortTest {
         int[] expectedResults = {-10, 0, 4, 7, 100500};
         MergeSort.doSort(actualResults);
         Assert.assertArrayEquals(expectedResults, actualResults);
-        System.out.println("Test \"odd value for demo data array\" complete!");
+        System.out.println("Test \"odd count value for demo data array\" complete!");
     }
 
     @Test()
