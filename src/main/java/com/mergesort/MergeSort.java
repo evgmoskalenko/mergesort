@@ -10,7 +10,7 @@ public class MergeSort {
 
     private static void splitArray(int[] array, int leftIndex, int rightIndex) {
         if (leftIndex < rightIndex) {
-            int middleIndex = (leftIndex + rightIndex) / 2;
+                int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
             splitArray(array, leftIndex, middleIndex);
             splitArray(array, middleIndex + 1, rightIndex);
             mergeSort(array, leftIndex, middleIndex, rightIndex);
