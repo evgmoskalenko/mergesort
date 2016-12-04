@@ -36,7 +36,7 @@ public class InputData {
 
     private static void filesData() {
         ClassLoader classLoader = InputData.class.getClassLoader();
-        File file = new File(classLoader.getResource("InputSortedDataValuesArray.txt.txt").getFile());
+        File file = new File(classLoader.getResource("InputSortedDataValuesArray.txt").getFile());
         ArrayList<Integer> list = new ArrayList<>();
 
         try (Scanner in = new Scanner(file)) {
